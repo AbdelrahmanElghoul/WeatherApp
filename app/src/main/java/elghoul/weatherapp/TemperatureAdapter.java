@@ -39,10 +39,6 @@ CityTemperatureData tempData;
         holder.txtDate.setText( tempData.getForecast().getForecastday().get( position ).getDate() );
         holder.txtCondition.setText( tempData.getForecast().getForecastday().get( position ).getDay().getCondition().getText() );
 
-        holder.txtAstro.setText(tempData.getForecast().getForecastday().get( position ).getAstro().getSunrise() +'\n'+
-                                tempData.getForecast().getForecastday().get( position ).getAstro().getSunset()+'\n'+
-                                tempData.getForecast().getForecastday().get( position ).getAstro().getMoonrise()+'\n'+
-                                tempData.getForecast().getForecastday().get( position ).getAstro().getMoonset());
 
         Picasso.with( context ).load( tempData.getForecast().getForecastday().get( position ).getDay().getCondition().getIcon() ).into( holder.imgTempState );
 
@@ -68,13 +64,11 @@ CityTemperatureData tempData;
 
         ImageView imgTempState;
         ListView DataList;
-        TextView txtCondition,txtLocation,txtDate,txtAstro;
+        TextView txtCondition,txtLocation,txtDate;
     public TemperatureViewHolder(View itemView) {
         super( itemView );
         imgTempState=itemView.findViewById( R.id.imgTemp );
         DataList=itemView.findViewById( R.id.DataFieldsList );
-
-        txtAstro=itemView.findViewById( R.id.txtAstro );
         txtCondition=itemView.findViewById( R.id.txtCondition );
         txtDate=itemView.findViewById( R.id.txtDate );
         txtLocation=itemView.findViewById( R.id.txtLocation );

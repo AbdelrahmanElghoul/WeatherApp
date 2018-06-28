@@ -141,46 +141,46 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     //Location
-                    String name=response.getJSONObject( "Location" ).getString( "name" );
-                    String region=response.getJSONObject( "Location" ).getString( "region" );
-                    String country=response.getJSONObject( "Location" ).getString( "country" );
-                    double lat=response.getJSONObject( "Location" ).getDouble( "lat" );
-                    double lon=response.getJSONObject( "Location" ).getDouble( "lon" );
-                    String tz_id=response.getJSONObject( "Location" ).getString( "tz_id" );
-                    int localtime_epoch=response.getJSONObject( "Location" ).getInt( "localtime_epoch" );
-                    String localtime=response.getJSONObject( "Location" ).getString( "localtime" );
+                    String name=response.getJSONObject( "location" ).getString( "name" );
+                    String region=response.getJSONObject( "location" ).getString( "region" );
+                    String country=response.getJSONObject( "location" ).getString( "country" );
+                    double lat=response.getJSONObject( "location" ).getDouble( "lat" );
+                    double lon=response.getJSONObject( "location" ).getDouble( "lon" );
+                    String tz_id=response.getJSONObject( "location" ).getString( "tz_id" );
+                    int localtime_epoch=response.getJSONObject( "location" ).getInt( "localtime_epoch" );
+                    String localtime=response.getJSONObject( "location" ).getString( "localtime" );
 
                     data.setLocation( new CityTemperatureData.Location
                             (name,region,country,lat,lon,tz_id,localtime_epoch,localtime  ) );
 
                     //Current
-                     int last_updated_epoch=response.getJSONObject( "Current" ).getInt( "last_updated_epoch" );
-                     String last_updated=response.getJSONObject( "Current" ).getString( "last_updated" );
-                     double temp_c=response.getJSONObject( "Current" ).getDouble( "temp_c" );
-                     double temp_f=response.getJSONObject( "Current" ).getDouble( "temp_f" );
-                     int is_day=response.getJSONObject( "Current" ).getInt( "is_day" );
+                     int last_updated_epoch=response.getJSONObject( "current" ).getInt( "last_updated_epoch" );
+                     String last_updated=response.getJSONObject( "current" ).getString( "last_updated" );
+                     double temp_c=response.getJSONObject( "current" ).getDouble( "temp_c" );
+                     double temp_f=response.getJSONObject( "current" ).getDouble( "temp_f" );
+                     int is_day=response.getJSONObject( "current" ).getInt( "is_day" );
 
 
                      //Condition condition;
-                    String Condition_text=response.getJSONObject( "Current" ).getJSONObject( "Condition" ).getString( "text" );
-                    String Condition_icon=response.getJSONObject( "Current" ).getJSONObject( "Condition" ).getString( "icon" );
-                    int Condition_code=response.getJSONObject( "Current" ).getJSONObject( "Condition" ).getInt( "code" );
+                    String Condition_text=response.getJSONObject( "current" ).getJSONObject( "condition" ).getString( "text" );
+                    String Condition_icon=response.getJSONObject( "current" ).getJSONObject( "condition" ).getString( "icon" );
+                    int Condition_code=response.getJSONObject( "current" ).getJSONObject( "condition" ).getInt( "code" );
 
 
-                     double wind_mph=response.getJSONObject( "Current" ).getDouble( "wind_mph" );
-                     double wind_kph=response.getJSONObject( "Current" ).getDouble( "wind_kph" );
-                     int wind_degree=response.getJSONObject( "Current" ).getInt( "wind_degree" );
-                     String wind_dir=response.getJSONObject( "Current" ).getString( "wind_dir" );
-                     double pressure_mb=response.getJSONObject( "Current" ).getDouble( "pressure_mb" );
-                     double pressure_in=response.getJSONObject( "Current" ).getDouble( "pressure_in" );
-                     double precip_mm=response.getJSONObject( "Current" ).getDouble( "precip_mm" );
-                     double precip_in=response.getJSONObject( "Current" ).getDouble( "precip_in" );
-                     int humidity=response.getJSONObject( "Current" ).getInt( "humidity" );
-                     int cloud=response.getJSONObject( "Current" ).getInt( "cloud" );
-                     double feelslike_c=response.getJSONObject( "Current" ).getDouble( "feelslike_c" );
-                     double feelslike_f=response.getJSONObject( "Current" ).getDouble( "feelslike_f" );
-                     double vis_km=response.getJSONObject( "Current" ).getDouble( "vis_km" );
-                    double vis_miles=response.getJSONObject( "Current" ).getDouble( "vis_miles" );
+                     double wind_mph=response.getJSONObject( "current" ).getDouble( "wind_mph" );
+                     double wind_kph=response.getJSONObject( "current" ).getDouble( "wind_kph" );
+                     int wind_degree=response.getJSONObject( "current" ).getInt( "wind_degree" );
+                     String wind_dir=response.getJSONObject( "current" ).getString( "wind_dir" );
+                     double pressure_mb=response.getJSONObject( "current" ).getDouble( "pressure_mb" );
+                     double pressure_in=response.getJSONObject( "current" ).getDouble( "pressure_in" );
+                     double precip_mm=response.getJSONObject( "current" ).getDouble( "precip_mm" );
+                     double precip_in=response.getJSONObject( "current" ).getDouble( "precip_in" );
+                     int humidity=response.getJSONObject( "current" ).getInt( "humidity" );
+                     int cloud=response.getJSONObject( "current" ).getInt( "cloud" );
+                     double feelslike_c=response.getJSONObject( "current" ).getDouble( "feelslike_c" );
+                     double feelslike_f=response.getJSONObject( "current" ).getDouble( "feelslike_f" );
+                     double vis_km=response.getJSONObject( "current" ).getDouble( "vis_km" );
+                    double vis_miles=response.getJSONObject( "current" ).getDouble( "vis_miles" );
 
                      data.setCurrent( new CityTemperatureData.Current(last_updated_epoch,last_updated,  temp_c
                              ,  temp_f,  is_day,    Condition_text, Condition_icon,  Condition_code,
@@ -195,38 +195,38 @@ public class MainActivity extends AppCompatActivity {
                           int date_epoch=object.getInt( "date_epoch" );
 
                             //Day
-                           double maxtemp_c=object.getJSONObject( "Day" ).getDouble( "maxtemp_c" );
-                           double maxtemp_f=object.getJSONObject( "Day" ).getDouble( "maxtemp_f" );
+                           double maxtemp_c=object.getJSONObject( "day" ).getDouble( "maxtemp_c" );
+                           double maxtemp_f=object.getJSONObject( "day" ).getDouble( "maxtemp_f" );
 
-                           double mintemp_c=object.getJSONObject( "Day" ).getDouble( "mintemp_c" );
-                           double mintemp_f=object.getJSONObject( "Day" ).getDouble( "mintemp_f" );
+                           double mintemp_c=object.getJSONObject( "day" ).getDouble( "mintemp_c" );
+                           double mintemp_f=object.getJSONObject( "day" ).getDouble( "mintemp_f" );
 
-                           double avgtemp_c=object.getJSONObject( "Day" ).getDouble( "avgtemp_c" );
-                           double avgtemp_f=object.getJSONObject( "Day" ).getDouble( "avgtemp_f" );
+                           double avgtemp_c=object.getJSONObject( "day" ).getDouble( "avgtemp_c" );
+                           double avgtemp_f=object.getJSONObject( "day" ).getDouble( "avgtemp_f" );
 
-                           double maxwind_mph=object.getJSONObject( "Day" ).getDouble( "maxwind_mph" );
-                           double maxwind_kph=object.getJSONObject( "Day" ).getDouble( "maxwind_kph" );
+                           double maxwind_mph=object.getJSONObject( "day" ).getDouble( "maxwind_mph" );
+                           double maxwind_kph=object.getJSONObject( "day" ).getDouble( "maxwind_kph" );
 
-                           double totalprecip_mm=object.getJSONObject( "Day" ).getDouble( "totalprecip_mm" );
-                           double totalprecip_in=object.getJSONObject( "Day" ).getDouble( "totalprecip_in" );
+                           double totalprecip_mm=object.getJSONObject( "day" ).getDouble( "totalprecip_mm" );
+                           double totalprecip_in=object.getJSONObject( "day" ).getDouble( "totalprecip_in" );
 
-                           double avgvis_km=object.getJSONObject( "Day" ).getDouble( "avgvis_km" );
-                           double avgvis_miles=object.getJSONObject( "Day" ).getDouble( "avgvis_miles" );
+                           double avgvis_km=object.getJSONObject( "day" ).getDouble( "avgvis_km" );
+                           double avgvis_miles=object.getJSONObject( "day" ).getDouble( "avgvis_miles" );
 
-                           double avghumidity=object.getJSONObject( "Day" ).getDouble( "avghumidity" );
+                           double avghumidity=object.getJSONObject( "day" ).getDouble( "avghumidity" );
 
-                           double uv=object.getJSONObject( "Day" ).getDouble( "uv" );
+                           double uv=object.getJSONObject( "day" ).getDouble( "uv" );
 
                           // ConditionX
-                          String text=object.getJSONObject( "Day" ).getJSONObject( "ConditionX" ).getString( "text");
-                          String icon=object.getJSONObject( "Day" ).getJSONObject( "ConditionX" ).getString( "icon");
-                          int code=object.getJSONObject( "Day" ).getJSONObject( "ConditionX" ).getInt( "code");
+                          String text=object.getJSONObject( "day" ).getJSONObject( "condition" ).getString( "text");
+                          String icon=object.getJSONObject( "day" ).getJSONObject( "condition" ).getString( "icon");
+                          int code=object.getJSONObject( "day" ).getJSONObject( "condition" ).getInt( "code");
 
                           //Astro
-                           String sunrise=object.getJSONObject( "Astro" ).getString( "sunrise" );
-                           String sunset=object.getJSONObject( "Astro" ).getString( "sunset" );
-                           String moonrise=object.getJSONObject( "Astro" ).getString( "moonrise" );
-                           String moonset=object.getJSONObject( "Astro" ).getString( "moonset" );
+                           String sunrise=object.getJSONObject( "astro" ).getString( "sunrise" );
+                           String sunset=object.getJSONObject( "astro" ).getString( "sunset" );
+                           String moonrise=object.getJSONObject( "astro" ).getString( "moonrise" );
+                           String moonset=object.getJSONObject( "astro" ).getString( "moonset" );
 
                            forecastday.add(new CityTemperatureData.Forecast.Forecastday (
                                    date,  date_epoch, maxtemp_c,  maxtemp_f,  mintemp_c,  mintemp_f,  avgtemp_c,  avgtemp_f,  maxwind_mph,  maxwind_kph
@@ -267,6 +267,6 @@ Toast.makeText( MainActivity.this,error.getMessage(),Toast.LENGTH_LONG ).show();
 
     };
 
-   
+
 
 }

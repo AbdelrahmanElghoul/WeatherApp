@@ -6,24 +6,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#d1d101">
+        android:background="#fcfcd5">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:src="@mipmap/ic_launcher"
             android:layout_alignParentTop="true"
             android:scaleType="fitCenter"
             android:id="@+id/imgTemp"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/imgTemp"
-            android:layout_margin="5dp"
-            android:id="@+id/txtAstro"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,9 +51,10 @@
 
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_below="@id/txtDate"
             android:divider="@null"
+            android:scrollbars="vertical"
             android:dividerHeight="0dp"
             android:layout_marginTop="10dp"
             android:id="@+id/DataFieldsList"
