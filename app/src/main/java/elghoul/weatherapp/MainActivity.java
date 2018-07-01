@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 imgLocate.setOnClickListener( new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Toast.makeText( MainActivity.this, "Clicked", Toast.LENGTH_SHORT ).show();
+        Toast.makeText( MainActivity.this, "Searching for GPS that may take a while", Toast.LENGTH_LONG ).show();
 
         locationManager = (LocationManager) getSystemService( LOCATION_SERVICE );
         locationListener = new LocationListener() {
@@ -147,12 +147,6 @@ try{
             != PackageManager.PERMISSION_GRANTED
             && ActivityCompat.checkSelfPermission( MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION )
             != PackageManager.PERMISSION_GRANTED);
-
-    if(Case)
-    Toast.makeText( MainActivity.this,"True",Toast.LENGTH_LONG ).show();
-    else{
-        Toast.makeText( MainActivity.this,"Fasle",Toast.LENGTH_LONG ).show();
-    }
 
             if (!Case)
 

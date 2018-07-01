@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#01363a</color>
+    <color name="colorPrimaryDark">#003e51</color>
+    <color name="colorAccent">#ff0004</color>
 
-    <color name="LayoutBackground">#fff6ea</color>
+    <color name="ParentLayoutBackground">#b8cfcc</color>
+    <color name="ChildLayoutBackground">#f4f9f8</color>
+    <color name="SearchBackground">#36968f</color>
+
 </resources>
