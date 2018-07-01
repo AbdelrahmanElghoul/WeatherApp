@@ -25,8 +25,8 @@ public class TemperatureList_frag extends Fragment {
         super.onActivityCreated( savedInstanceState );
         TempRecyclerView=getActivity().findViewById( R.id.TempRecyclerView );
         TempRecyclerView.setHasFixedSize( true );
-        TempRecyclerView.setLayoutManager( new LinearLayoutManager( getContext() ) );
+        TempRecyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ) );
         data=getArguments().getParcelable( "Obj" );
-        TempRecyclerView.setAdapter( new TemperatureAdapter( getContext(),data ));
+        TempRecyclerView.setAdapter( new TemperatureAdapter( getActivity(),data ));
     }
 }

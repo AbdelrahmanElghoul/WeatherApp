@@ -1,6 +1,7 @@
 package elghoul.weatherapp;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -39,9 +41,16 @@ CityTemperatureData tempData;
         holder.txtDate.setText( tempData.getForecast().getForecastday().get( position ).getDate() );
         holder.txtCondition.setText( tempData.getForecast().getForecastday().get( position ).getDay().getCondition().getText() );
 
+            Picasso.Builder builder = new Picasso.Builder(context);
+        builder.listener(new Picasso.Listener()
+        {
 
-        Picasso.with( context ).load( tempData.getForecast().getForecastday().get( position ).getDay().getCondition().getIcon() ).into( holder.imgTempState );
-
+            @Override
+            public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
+                Toast.makeText( context, exception.getMessage(), Toast.LENGTH_LONG ).show();
+            }
+        });
+        builder.build().load(tempData.getForecast().getForecastday().get( position ).getDay().getCondition().getIcon()).into(holder.imgTempState);
             String[] forecast=new String[]{"max temp : "+tempData.getForecast().getForecastday().get( position ).getDay().getMaxtemp_c()+" °C"
                     ,"min temp : "+tempData.getForecast().getForecastday().get( position ).getDay().getMintemp_c()+" °C"
                     ,"max wind :"+tempData.getForecast().getForecastday().get( position ).getDay().getMaxwind_kph()+" kph"
