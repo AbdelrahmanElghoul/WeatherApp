@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+        <item
+            android:id="@+id/setting"
+            android:title="Setting"
+            android:icon="@drawable/setting"
+            app:showAsAction="always"
+            >
+                <menu>
+                        <item android:title="Temperature ">
+                        <menu>
+                                <item
+                                    android:title="Celsius (°C)"
+                                    android:checkable="true"
+                                    android:id="@+id/Temp_Celsius"
+                                    />
+                                <item
+                                    android:title="Fahrenheit (°F)"
+                                    android:checkable="true"
+                                    android:id="@+id/Temp_Fahrenheit"
+                                    />
+                        </menu>
+                </item>
+
+                        <item android:title="Wind speed ">
+                        <menu>
+                                <item
+                                    android:title="mph"
+                                    android:checkable="true"
+                                    android:id="@+id/Wind_mph"
+                                    />
+                                <item
+                                    android:title="kph"
+                                    android:checkable="true"
+                                    android:id="@+id/Wind_kph"
+                                    />
+                        </menu>
+
+                </item>
+
+                        <item android:title="precipitation ">
+                <menu>
+                        <item
+                            android:title="mm"
+                            android:checkable="true"
+                                android:id="@+id/Precip_mm"
+                            />
+                        <item
+                            android:title="in"
+                            android:checkable="true"
+                            android:id="@+id/Precip_in"
+                            />
+                </menu>
+
+                </item>
+
+                        <item android:title="Humidity "
+                            android:checkable="true"
+                            android:id="@+id/AvgHumidity"
+                    />
+
+                </menu>
+
+        </item>
+
+</menu>
