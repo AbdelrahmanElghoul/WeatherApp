@@ -38,7 +38,7 @@ CityTemperatureData tempData;
     @Override
     public void onBindViewHolder(TemperatureViewHolder holder, int position) {
         holder.txtLocation.setText( tempData.getLocation().getRegion()+","+tempData.getLocation().getCountry());
-        holder.txtDate.setText( tempData.getForecast().getForecastday().get( position ).getDate() );
+        holder.txtDate.setText( tempData.getForecast().getForecastday().get( position ).getDate().toString() );
         holder.txtCondition.setText( tempData.getForecast().getForecastday().get( position ).getDay().getCondition().getText() );
 
             Picasso.Builder builder = new Picasso.Builder(context);

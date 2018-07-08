@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CityTemperatureData implements Parcelable {
@@ -19,7 +20,7 @@ public class CityTemperatureData implements Parcelable {
     private Current current;
     private Forecast forecast;
 
-    protected CityTemperatureData(Parcel in) {
+    private CityTemperatureData(Parcel in) {
     }
 
     public static final Creator<CityTemperatureData> CREATOR = new Creator<CityTemperatureData>() {
@@ -34,7 +35,7 @@ public class CityTemperatureData implements Parcelable {
         }
     };
 
-    public CityTemperatureData() {
+    CityTemperatureData() {
 
     }
 
@@ -253,10 +254,12 @@ public class CityTemperatureData implements Parcelable {
         private int cloud;
         private double feelslike_c;
         private double feelslike_f;
-        private double vis_km;
-        private double vis_miles;
 
-        public Current(int last_updated_epoch, String last_updated, double temp_c, double temp_f, int is_day, String Condition_text, String Condition_icon, int Condition_code, double wind_mph, double wind_kph, int wind_degree, String wind_dir, double pressure_mb, double pressure_in, double precip_mm, double precip_in, int humidity, int cloud, double feelslike_c, double feelslike_f, double vis_km, double vis_miles) {
+
+        public Current(int last_updated_epoch, String last_updated, double temp_c, double temp_f, int is_day
+                , String Condition_text, String Condition_icon, int Condition_code, double wind_mph, double wind_kph
+                , int wind_degree, String wind_dir, double pressure_mb, double pressure_in, double precip_mm, double precip_in
+                , int humidity, int cloud, double feelslike_c, double feelslike_f) {
             this.last_updated_epoch = last_updated_epoch;
             this.last_updated = last_updated;
             this.temp_c = temp_c;
@@ -275,8 +278,7 @@ public class CityTemperatureData implements Parcelable {
             this.cloud = cloud;
             this.feelslike_c = feelslike_c;
             this.feelslike_f = feelslike_f;
-            this.vis_km = vis_km;
-            this.vis_miles = vis_miles;
+
         }
 
         public int getLast_updated_epoch() {
@@ -423,21 +425,7 @@ public class CityTemperatureData implements Parcelable {
             this.feelslike_f = feelslike_f;
         }
 
-        public double getVis_km() {
-            return vis_km;
-        }
 
-        public void setVis_km(double vis_km) {
-            this.vis_km = vis_km;
-        }
-
-        public double getVis_miles() {
-            return vis_miles;
-        }
-
-        public void setVis_miles(double vis_miles) {
-            this.vis_miles = vis_miles;
-        }
 
         public static class Condition {
             /**
@@ -506,8 +494,7 @@ public class CityTemperatureData implements Parcelable {
             dest.writeInt( this.cloud );
             dest.writeDouble( this.feelslike_c );
             dest.writeDouble( this.feelslike_f );
-            dest.writeDouble( this.vis_km );
-            dest.writeDouble( this.vis_miles );
+
         }
 
         public Current() {
@@ -532,8 +519,7 @@ public class CityTemperatureData implements Parcelable {
             this.cloud = in.readInt();
             this.feelslike_c = in.readDouble();
             this.feelslike_f = in.readDouble();
-            this.vis_km = in.readDouble();
-            this.vis_miles = in.readDouble();
+
         }
 
         public static final Creator<Current> CREATOR = new Creator<Current>() {
@@ -578,12 +564,13 @@ public class CityTemperatureData implements Parcelable {
             private Day day;
             private Astro astro;
 
-            public Forecastday(String date, int date_epoch,double maxtemp_c, double maxtemp_f, double mintemp_c, double mintemp_f, double avgtemp_c, double avgtemp_f, double maxwind_mph, double maxwind_kph, double totalprecip_mm, double totalprecip_in, double avgvis_km, double avgvis_miles, double avghumidity,String text, String icon, int code, double uv,String sunrise, String sunset, String moonrise, String moonset) {
+            public Forecastday(String date, int date_epoch,double maxtemp_c, double maxtemp_f, double mintemp_c, double mintemp_f, double avgtemp_c, double avgtemp_f, double maxwind_mph, double maxwind_kph, double totalprecip_mm, double totalprecip_in, double avghumidity,String text, String icon, int code,String sunrise, String sunset, String moonrise, String moonset) {
                 this.date = date;
                 this.date_epoch = date_epoch;
-                this.day=new Day(  maxtemp_c,  maxtemp_f,  mintemp_c,  mintemp_f,  avgtemp_c,  avgtemp_f,  maxwind_mph,  maxwind_kph,  totalprecip_mm,  totalprecip_in,  avgvis_km,  avgvis_miles,  avghumidity, text,  icon,  code,  uv );
+                this.day=new Day(  maxtemp_c,  maxtemp_f,  mintemp_c,  mintemp_f,  avgtemp_c,  avgtemp_f,  maxwind_mph,  maxwind_kph,  totalprecip_mm,  totalprecip_in,avghumidity, text,  icon,  code );
                 this.astro=new Astro(  sunrise,  sunset,  moonrise,  moonset) ;
             }
+
 
             public String getDate() {
                 return date;
@@ -638,21 +625,25 @@ public class CityTemperatureData implements Parcelable {
 
                 private double maxtemp_c;
                 private double maxtemp_f;
+
                 private double mintemp_c;
                 private double mintemp_f;
+
                 private double avgtemp_c;
                 private double avgtemp_f;
+
                 private double maxwind_mph;
                 private double maxwind_kph;
+
                 private double totalprecip_mm;
                 private double totalprecip_in;
-                private double avgvis_km;
-                private double avgvis_miles;
+
                 private double avghumidity;
                 private ConditionX condition;
-                private double uv;
 
-                public Day(double maxtemp_c, double maxtemp_f, double mintemp_c, double mintemp_f, double avgtemp_c, double avgtemp_f, double maxwind_mph, double maxwind_kph, double totalprecip_mm, double totalprecip_in, double avgvis_km, double avgvis_miles, double avghumidity,String text, String icon, int code, double uv) {
+
+                public Day(double maxtemp_c, double maxtemp_f, double mintemp_c, double mintemp_f, double avgtemp_c, double avgtemp_f, double maxwind_mph, double maxwind_kph
+                        , double totalprecip_mm, double totalprecip_in,  double avghumidity,String text, String icon, int code) {
                     this.maxtemp_c = maxtemp_c;
                     this.maxtemp_f = maxtemp_f;
                     this.mintemp_c = mintemp_c;
@@ -663,11 +654,10 @@ public class CityTemperatureData implements Parcelable {
                     this.maxwind_kph = maxwind_kph;
                     this.totalprecip_mm = totalprecip_mm;
                     this.totalprecip_in = totalprecip_in;
-                    this.avgvis_km = avgvis_km;
-                    this.avgvis_miles = avgvis_miles;
+
                     this.avghumidity = avghumidity;
                     this.condition = new ConditionX( text, icon,  code);
-                    this.uv = uv;
+
                 }
 
                 public double getMaxtemp_c() {
@@ -750,21 +740,6 @@ public class CityTemperatureData implements Parcelable {
                     this.totalprecip_in = totalprecip_in;
                 }
 
-                public double getAvgvis_km() {
-                    return avgvis_km;
-                }
-
-                public void setAvgvis_km(double avgvis_km) {
-                    this.avgvis_km = avgvis_km;
-                }
-
-                public double getAvgvis_miles() {
-                    return avgvis_miles;
-                }
-
-                public void setAvgvis_miles(double avgvis_miles) {
-                    this.avgvis_miles = avgvis_miles;
-                }
 
                 public double getAvghumidity() {
                     return avghumidity;
@@ -782,13 +757,6 @@ public class CityTemperatureData implements Parcelable {
                     this.condition = condition;
                 }
 
-                public double getUv() {
-                    return uv;
-                }
-
-                public void setUv(double uv) {
-                    this.uv = uv;
-                }
 
                 public static class ConditionX {
                     /**

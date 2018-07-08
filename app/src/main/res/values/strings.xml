@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Weather App</string>
+    <string name="app_name">Weather</string>
     <string name="API_KEY">7708c33f89494d1fb77154946182706</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -13,5 +13,7 @@
         <item>6</item>
         <item>7</item>
     </string-array>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
 </resources>
