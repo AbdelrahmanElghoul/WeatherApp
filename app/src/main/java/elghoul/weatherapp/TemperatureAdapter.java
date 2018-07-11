@@ -37,7 +37,7 @@ CityTemperatureData tempData;
 
     @Override
     public void onBindViewHolder(TemperatureViewHolder holder, int position) {
-        holder.txtLocation.setText( tempData.getLocation().getRegion()+","+tempData.getLocation().getCountry());
+       //holder.txtLocation.setText( tempData.getLocation().getRegion()+","+tempData.getLocation().getCountry());
         holder.txtDate.setText( tempData.getForecast().getForecastday().get( position ).getDate().toString() );
         holder.txtCondition.setText( tempData.getForecast().getForecastday().get( position ).getDay().getCondition().getText() );
 
@@ -55,9 +55,7 @@ CityTemperatureData tempData;
 
 holder.txtWeather.setText( tempData.getForecast().getForecastday().get( position ).getDay().getMaxtemp_c()+" °"
         +"  |  "+
-        tempData.getForecast().getForecastday().get( position ).getDay().getMintemp_c()+" °"
-        +"\n"+
-       "Avg humidity : "+ tempData.getForecast().getForecastday().get( position ).getDay().getAvghumidity() );
+        tempData.getForecast().getForecastday().get( position ).getDay().getMintemp_c()+" °");
 
 
     }
@@ -80,7 +78,7 @@ holder.txtWeather.setText( tempData.getForecast().getForecastday().get( position
 
         txtCondition=itemView.findViewById( R.id.txtCondition );
         txtDate=itemView.findViewById( R.id.txtDate );
-        txtLocation=itemView.findViewById( R.id.txtLocation );
+        //txtLocation=itemView.findViewById( R.id.txtLocation );
         txtWeather=itemView.findViewById( R.id.txtWeather );
 
     }
