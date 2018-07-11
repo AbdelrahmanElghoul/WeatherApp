@@ -2,6 +2,7 @@ package elghoul.weatherapp;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.VoiceInteractor;
@@ -32,6 +33,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -212,29 +214,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate( R.menu.setting,menu );
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-
-        switch (item.getItemId()){
-            case R.id.AvgHumidity:
-                item.setChecked( !item.isChecked() );
-                return true;
-
-        default:return true;
-       }
-
-    }
-
 
     class Rest_API {
 

@@ -4,6 +4,7 @@ package elghoul.weatherapp;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,9 +25,11 @@ public class TemperatureList_frag extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated( savedInstanceState );
         TempRecyclerView=getActivity().findViewById( R.id.TempRecyclerView );
-        TempRecyclerView.setHasFixedSize( true );
-        TempRecyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ) );
+        TempRecyclerView.setHasFixedSize( false );
+
         data=getArguments().getParcelable( "Obj" );
+       // TempRecyclerView.setLayoutManager( new GridLayoutManager( getActivity(),data.getForecast().getForecastday().size()));
+        TempRecyclerView.setLayoutManager( new LinearLayoutManager( getActivity()));
         TempRecyclerView.setAdapter( new TemperatureAdapter( getActivity(),data ));
     }
 }

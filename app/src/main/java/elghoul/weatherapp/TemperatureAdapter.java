@@ -51,14 +51,14 @@ CityTemperatureData tempData;
             }
         });
         builder.build().load(tempData.getForecast().getForecastday().get( position ).getDay().getCondition().getIcon()).into(holder.imgTempState);
-            String[] forecast=new String[]{"max temp : "+tempData.getForecast().getForecastday().get( position ).getDay().getMaxtemp_c()+" °C"
-                    ,"min temp : "+tempData.getForecast().getForecastday().get( position ).getDay().getMintemp_c()+" °C"
-                    ,"max wind :"+tempData.getForecast().getForecastday().get( position ).getDay().getMaxwind_kph()+" kph"
-                    ,"Avg humidity : "+ tempData.getForecast().getForecastday().get( position ).getDay().getAvghumidity()
-                    };
-        ListAdapter adapter=new ArrayAdapter(context,android.R.layout.simple_list_item_1,forecast) ;
 
-        holder.DataList.setAdapter( adapter );
+
+holder.txtWeather.setText( tempData.getForecast().getForecastday().get( position ).getDay().getMaxtemp_c()+" °"
+        +"  |  "+
+        tempData.getForecast().getForecastday().get( position ).getDay().getMintemp_c()+" °"
+        +"\n"+
+       "Avg humidity : "+ tempData.getForecast().getForecastday().get( position ).getDay().getAvghumidity() );
+
 
     }
 
@@ -72,15 +72,16 @@ CityTemperatureData tempData;
     class TemperatureViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imgTempState;
-        ListView DataList;
-        TextView txtCondition,txtLocation,txtDate;
+
+        TextView txtCondition,txtLocation,txtDate,txtWeather;
     public TemperatureViewHolder(View itemView) {
         super( itemView );
         imgTempState=itemView.findViewById( R.id.imgTemp );
-        DataList=itemView.findViewById( R.id.DataFieldsList );
+
         txtCondition=itemView.findViewById( R.id.txtCondition );
         txtDate=itemView.findViewById( R.id.txtDate );
         txtLocation=itemView.findViewById( R.id.txtLocation );
+        txtWeather=itemView.findViewById( R.id.txtWeather );
 
     }
 }
